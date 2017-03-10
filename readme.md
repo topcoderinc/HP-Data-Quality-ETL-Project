@@ -5,7 +5,7 @@ The HP Data Quality team is tasked with moving large amounts of data on a regula
 ##[Live Wireframes](https://topcoderinc.github.io/HP-Data-Quality-ETL-Wireframes/#g=1&p=login)
 ##[Live Storyboards](https://topcoderinc.github.io/HP-Data-Quality-ETL-storyboards/)
 
-### ![](https://image.flaticon.com/icons/png/128/37/37318.png)Repos
+### ![](https://assets-cdn.github.com/favicon.ico)  Repos
  * [Project Documentaiton (this repo)](https://github.com/topcoderinc/HP-Data-Quality-ETL-project)
  * [Wireframes ](https://github.com/topcoderinc/HP-Data-Quality-ETL-wireframes)
  * [Storyboards ](https://github.com/topcoderinc/HP-Data-Quality-ETL-storyboards)
