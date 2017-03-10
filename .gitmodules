@@ -1,0 +1,6 @@
+[submodule "src/storyboards"]
+	path = src/storyboards
+	url = git@github.com:topcoderinc/HP-Data-Quality-ETL-storyboards.git
+[submodule "src/wireframes"]
+	path = src/wireframes
+	url = git@github.com:topcoderinc/HP-Data-Quality-ETL-wireframes.git

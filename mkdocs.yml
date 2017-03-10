@@ -1,13 +1,13 @@
-site_name: tcprojWrapper
-repo_url: https://github.com/topcoderinc/tcProjWrapper
+site_name: HP Data Quality ETL
+repo_url: https://github.com/topcoderinc/HP-Data-Quality-ETL-project
 pages:
-    - 'Topcoder Docs':
+    - Project Docs:
+      - 'This Project introduction': index.md
+      - Component Details: component_details.md
+    - Topcoder Docs:
        - 'Copilot Responsibilities': topcoder/copilotsResponsiblites.md
        - code:
           - 'Fixing Bugs from github': topcoder/fixingBugs.md
           - 'Ragnar: Git Process': topcoder/RagnarGit.md
-    - tcProjWrapper:
-      - 'This Project introduction': index.md
-      - mkdocs: mkDocsIndex.md
-    - Project: project.md
+       - tcprojWrapper: topcoder/tcProjWrapper.md
 theme_dir: cinder/site
