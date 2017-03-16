@@ -4,6 +4,8 @@ pages:
     - Project Docs:
       - 'This Project introduction': index.md
       - Component Details: component_details.md
+      - Architecure Docs:
+        - Application Design Spec: architecture/Application_Design_Specification.md
     - Topcoder Docs:
        - 'Copilot Responsibilities': topcoder/copilotsResponsiblites.md
        - code:

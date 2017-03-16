@@ -1,0 +1,14 @@
+﻿
+Question 1.1.3
+"I don't see how audit related fields are populated in entities. It looks like front end should do this using the current user information."
+In controller update and create methods new notes were added.
+
+
+Question 1.1.4
+"Minor, JobServiceImpl.resumeJobExecution - no need for CronTrigger, you could just use SimpleTrigger."
+Fixed.
+
+"TransformationJob.execute:
+Long jobExecutionStatusId = data.getLong(JOB_EXECUTION_STATUS_ID_KEY);"
+Fixed.
+

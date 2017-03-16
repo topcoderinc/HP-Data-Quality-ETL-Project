@@ -1,0 +1,1074 @@
+swagger: '2.0'
+info:
+  title: HP Data Quality ETL App
+  description: HP Data Quality ETL App API.
+  version: "1.0.0"
+# the sample made up domain of the service
+host: api.etlapp.com
+# array of all schemes the API supports
+schemes:
+  - https
+# will be prefixed to all paths
+securityDefinitions:
+  basicAuth:
+    type: basic
+# HTTP Basic Authentication. Works over `HTTP` and `HTTPS`
+basePath: /v1
+produces:
+  - application/json
+paths:
+  
+  /users?&{page_number}&{page_size}&{sort_column}&{sort_order}:
+    get:
+      tags:
+        - User
+      summary: search for entities
+      description: This endpoint is responsible for searching by attribute
+      security:
+        - basicAuth: []
+      parameters:
+        - name: page_number
+          in: path
+          description: The page number
+          type: number
+          format: int32
+          required: true 
+        - name: page_size
+          in: path
+          description: The page size
+          type: number
+          format: int32
+          required: true
+        - name: sort_column
+          in: path
+          description: The sort column
+          type: string
+          required: true  
+        - name: sort_order
+          in: path
+          description: The sort order
+          type: string
+          required: true    
+      responses:
+        200:
+          description: The response containing the InventoryTransfers
+          schema:
+            $ref: '#/definitions/UserSearchResult'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+            
+  /users/{id}:
+    get:
+      tags:
+        - User
+      summary: get User
+      description: This endpoint is responsible for getting User 
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: The id
+          type: string
+          required: true
+      responses:
+        200:
+          description: The response containing the User
+          schema:
+            $ref: '#/definitions/User'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'   
+          
+    put:
+      tags:
+        - User
+      summary: update User
+      description: This endpoint is responsible for updating User 
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: The id
+          type: string
+          required: true
+        - name: inventoryTransfer
+          in: body
+          description: The User to update
+          schema:
+            $ref: '#/definitions/User'  
+      responses:
+        200:
+          description: The response containing the User
+          schema:
+            $ref: '#/definitions/User'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'    
+    
+    delete:
+      tags:
+        - User
+      summary: delete User
+      description: This endpoint is responsible for deleting User 
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: The id
+          type: string
+          required: true
+      responses:
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'           
+            
+  /users:   
+    post:
+      tags:
+        - User
+      summary: create User
+      description: This endpoint is responsible for creating User 
+      security:
+        - basicAuth: []
+      parameters:
+        - name: user
+          in: body
+          description: The User to create
+          schema:
+            $ref: '#/definitions/User'  
+      responses:
+        200:
+          description: The response containing the User
+          schema:
+            $ref: '#/definitions/User'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'                    
+            
+  
+  /jobs?{page_number}&{page_size}&{sort_column}&{sort_order}:
+    get:
+      tags:
+        - Job
+      summary: search for entities
+      description: This endpoint is responsible for searching   
+      security:
+        - basicAuth: []
+      parameters:
+        - name: page_number
+          in: path
+          description: The page number
+          type: number
+          format: int32
+          required: true 
+        - name: page_size
+          in: path
+          description: The page size
+          type: number
+          format: int32
+          required: true
+        - name: sort_column
+          in: path
+          description: The sort column
+          type: string
+          required: true  
+        - name: sort_order
+          in: path
+          description: The sort order
+          type: string
+          required: true    
+      responses:
+        200:
+          description: The response
+          schema:
+            $ref: '#/definitions/JobSearchResult'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+            
+  /jobs/{id}:
+    get:
+      tags:
+        - Job
+      summary: get Job
+      description: This endpoint is responsible for getting entity  
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: The id
+          type: string
+          required: true
+      responses:
+        200:
+          description: The response containing the job
+          schema:
+            $ref: '#/definitions/Job'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'   
+          
+    put:
+      tags:
+        - Job
+      summary: update Job
+      description: This endpoint is responsible for updating entity  
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: The id
+          type: string
+          required: true
+        - name: job
+          in: body
+          description: The entity to update
+          schema:
+            $ref: '#/definitions/Job'  
+      responses:
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'    
+    
+    delete:
+      tags:
+        - Job
+      summary: delete Job
+      description: This endpoint is responsible for deleting Job 
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: The id
+          type: string
+          required: true
+      responses:
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'           
+            
+  /jobs:   
+    post:
+      tags:
+        - Job
+      summary: create Job
+      description: This endpoint is responsible for creating entity 
+      security:
+        - basicAuth: []
+      parameters:
+        - name: job
+          in: body
+          description: The entity to create
+          schema:
+            $ref: '#/definitions/Job'  
+      responses:
+        200:
+          description: The response containing the Job
+          schema:
+            $ref: '#/definitions/Job'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'  
+            
+
+  /projects?{page_number}&{page_size}&{sort_column}&{sort_order}:
+    get:
+      tags:
+        - Project
+      summary: search for entities
+      description: This endpoint is responsible for searching   
+      security:
+        - basicAuth: []
+      parameters:
+        - name: page_number
+          in: path
+          description: The page number
+          type: number
+          format: int32
+          required: true 
+        - name: page_size
+          in: path
+          description: The page size
+          type: number
+          format: int32
+          required: true
+        - name: sort_column
+          in: path
+          description: The sort column
+          type: string
+          required: true  
+        - name: sort_order
+          in: path
+          description: The sort order
+          type: string
+          required: true    
+      responses:
+        200:
+          description: The response
+          schema:
+            $ref: '#/definitions/ProjectSearchResult'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+            
+  /projects/{id}:
+    get:
+      tags:
+        - Project
+      summary: get Project
+      description: This endpoint is responsible for getting entity  
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: The id
+          type: string
+          required: true
+      responses:
+        200:
+          description: The response containing the Project
+          schema:
+            $ref: '#/definitions/Project'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'   
+          
+    put:
+      tags:
+        - Project
+      summary: update Project
+      description: This endpoint is responsible for updating entity  
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: The id
+          type: string
+          required: true
+        - name: project
+          in: body
+          description: The entity to update
+          schema:
+            $ref: '#/definitions/Project'  
+      responses:
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'    
+    
+    delete:
+      tags:
+        - Project
+      summary: delete Project
+      description: This endpoint is responsible for deleting Project
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: The id
+          type: string
+          required: true
+      responses:
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'           
+            
+  /projects:   
+    post:
+      tags:
+        - Project
+      summary: create Project
+      description: This endpoint is responsible for creating entity 
+      security:
+        - basicAuth: []
+      parameters:
+        - name: project
+          in: body
+          description: The entity to create
+          schema:
+            $ref: '#/definitions/Project'  
+      responses:
+        200:
+          description: The response containing the Job
+          schema:
+            $ref: '#/definitions/Project'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'  
+
+
+  /notifications?{page_number}&{page_size}&{sort_column}&{sort_order}:
+    get:
+      tags:
+        - Notification
+      summary: search for entities
+      description: This endpoint is responsible for searching   
+      security:
+        - basicAuth: []
+      parameters:
+        - name: page_number
+          in: path
+          description: The page number
+          type: number
+          format: int32
+          required: true 
+        - name: page_size
+          in: path
+          description: The page size
+          type: number
+          format: int32
+          required: true
+        - name: sort_column
+          in: path
+          description: The sort column
+          type: string
+          required: true  
+        - name: sort_order
+          in: path
+          description: The sort order
+          type: string
+          required: true    
+      responses:
+        200:
+          description: The response
+          schema:
+            $ref: '#/definitions/NotificationSearchResult'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+            
+  /notifations/{id}:
+    get:
+      tags:
+        - Notification
+      summary: get Notification
+      description: This endpoint is responsible for getting entity  
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: The id
+          type: string
+          required: true
+      responses:
+        200:
+          description: The response containing the Project
+          schema:
+            $ref: '#/definitions/Notification'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'   
+          
+    delete:
+      tags:
+        - Notification
+      summary: delete Notification
+      description: This endpoint is responsible for deleting Notification
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: The id
+          type: string
+          required: true
+      responses:
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'           
+  
+  /notifations/{id}/read:          
+    put:
+      tags:
+        - Notification
+      summary: mark notification as  read
+      description: This endpoint is responsible for updating entity  
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: The id
+          type: string
+          required: true
+      responses:
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'  
+
+
+            
+  /lookups/userRoles:
+    get:
+      tags:
+        - Lookups
+      summary: get UserRoles
+      description: This endpoint is responsible for getting lookups  
+      security:
+        - basicAuth: []
+      responses:
+        200:
+          description: The response containing the lookups
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UserRole'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'        
+            
+
+  /lookups/verticaVersions:
+    get:
+      tags:
+        - Lookups
+      summary: get VerticaVersions
+      description: This endpoint is responsible for getting lookups  
+      security:
+        - basicAuth: []
+      responses:
+        200:
+          description: The response containing the lookups
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/VerticaVersion'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'   
+ 
+  /lookups/excelVersions:
+    get:
+      tags:
+        - Lookups
+      summary: get ExcelVersions
+      description: This endpoint is responsible for getting lookups  
+      security:
+        - basicAuth: []
+      responses:
+        200:
+          description: The response containing the lookups
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ExcelVersion'
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'   
+            
+  /login:   
+    post:
+      tags:
+        - Security
+      summary: Sends login and password in header
+      description: This endpoint is responsible for login 
+      security:
+        - basicAuth: []
+      responses:
+        200:
+          description: The response containing the security token
+          schema:
+            type: string
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'     
+            
+  /logout:   
+    post:
+      tags:
+        - Security
+      summary: Logs out
+      description: This endpoint is responsible for log out. 
+      security:
+        - basicAuth: []
+      responses:
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error' 
+            
+  /users/forgotPassword?{email}:
+    put:
+      tags:
+        - User
+        - Security
+      summary: initiate forgot password
+      description: This endpoint is responsible for forgot password functionality 
+      security:
+        - basicAuth: []
+      parameters:
+        - name: email
+          in: path
+          description: The email
+          type: string
+          required: true
+      responses:
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'      
+
+  /users/updatePassword:
+    put:
+      tags:
+        - User
+        - Security
+      summary: update password
+      description: This endpoint is responsible for update password functionality 
+      security:
+        - basicAuth: []
+      parameters:
+        - name: newPassword
+          in: body
+          description: The new password.
+          schema:
+            type: string 
+      responses:
+        400:
+          description: Bad Request - if there was problem with the request (e.g. malformed or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal server error - if the request was properly formatted, but the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'      
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'             
+           
+ 
+definitions:
+  
+  User:
+    type: object
+    properties:
+      id:
+        type: number
+        format: integer
+        description: The id.   
+      username:
+        type: string
+        description: The username.
+      password:
+        type: string
+        description: The password (present only in PUT and POST requests, not in GET).
+      first_name:
+        type: string
+        description: The first name.  
+      last_name:
+        type: string
+        description: The last name. 
+      roles:
+        type: array
+        items: 
+          $ref: '#/definitions/UserRole'
+          
+  UserSearchResult:
+    type: object
+    properties:
+      total:
+        type: number
+        format: integer
+        description: The total.   
+      total_pages:
+        type: number
+        format: integer
+        description: The total pages.
+      entities:
+        type: array
+        items: 
+          $ref: '#/definitions/User'        
+          
+          
+        
+        
+  Job:
+    type: object
+    properties:
+      id:
+        type: number
+        format: integer
+        description: The id.
+      name:
+        type: string
+        description: The name
+      project_id:
+        type: number
+        format: integer
+        description: The project id.  
+      description:
+        type: string
+        description: The description
+      created_on:
+        type: string
+        format: date
+        description: The created on. 
+      created_by:
+        type: string
+        description: The created by  
+      updated_on:
+        type: string
+        format: date
+        description: The updated on. 
+      updated_by:
+        type: string
+        description: The updated by  
+
+  JobSearchResult:
+    type: object
+    properties:
+      total:
+        type: number
+        format: integer
+        description: The total.   
+      total_pages:
+        type: number
+        format: integer
+        description: The total pages.
+      entities:
+        type: array
+        items: 
+          $ref: '#/definitions/Job'             
+  
+  Project:
+    type: object
+    properties:
+      id:
+        type: number
+        format: integer
+        description: The id.
+      name:
+        type: string
+        description: The name
+      jobs:
+        type: array
+        items: 
+          $ref: '#/definitions/Job'  
+
+  ProjectSearchResult:
+    type: object
+    properties:
+      total:
+        type: number
+        format: integer
+        description: The total.   
+      total_pages:
+        type: number
+        format: integer
+        description: The total pages.
+      entities:
+        type: array
+        items: 
+          $ref: '#/definitions/Project'          
+
+  Notification:
+    type: object
+    properties:
+      id:
+        type: number
+        format: integer
+        description: The id.
+      user_id:
+        type: number
+        format: integer
+        description: The id.  
+      message:
+        type: string
+        description: The message
+
+
+  NotificationSearchResult:
+    type: object
+    properties:
+      total:
+        type: number
+        format: integer
+        description: The total.   
+      total_pages:
+        type: number
+        format: integer
+        description: The total pages.
+      entities:
+        type: array
+        items: 
+          $ref: '#/definitions/Notification'          
+
+
+
+  UserRole:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: The id.   
+      value:
+        type: string      
+        description: The value.
+     
+  VerticaVersion:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: The id.   
+      value:
+        type: string      
+        description: The value.
+        
+  ExcelVersion:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: The id.   
+      value:
+        type: string      
+        description: The value.
+
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string 
