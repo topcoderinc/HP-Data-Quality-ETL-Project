@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    <title>Application Design Spec - HP Data Quality ETL</title>
+
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- <img src="https://storage.googleapis.com/instapage-user-media/97c829ee/1997047-0-high-topcoder-horizo.png" /> -->
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../.."> <img src="https://storage.googleapis.com/instapage-user-media/97c829ee/1997047-0-high-topcoder-horizo.png"  height="22px"/> HP Data Quality ETL </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project Docs <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../..">This Project introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../component_details/">Component Details</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Architecure Docs</a>
+    <ul class="dropdown-menu">
+        
+            
+<li class="active">
+    <a href="./">Application Design Spec</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Topcoder Docs <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../topcoder/copilotsResponsiblites/">Copilot Responsibilities</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">code</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../topcoder/fixingBugs/">Fixing Bugs from github</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../topcoder/RagnarGit/">Ragnar: Git Process</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../../topcoder/tcProjWrapper/">tcprojWrapper</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../../component_details/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../../topcoder/copilotsResponsiblites/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/topcoderinc/HP-Data-Quality-ETL-project">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="first-level active"><a href="#_1">\</a></li>
+        
+    
+        <li class="first-level "><a href="#design">Design</a></li>
+        
+            <li class="second-level"><a href="#overview">Overview</a></li>
+            
+                <li class="third-level"><a href="#assemblies">Assemblies</a></li>
+            
+                <li class="third-level"><a href="#topcoder-generic-components">TopCoder Generic Components</a></li>
+            
+                <li class="third-level"><a href="#third-party-components">Third Party Components</a></li>
+            
+                <li class="third-level"><a href="#transaction">Transaction</a></li>
+            
+                <li class="third-level"><a href="#configuration">Configuration</a></li>
+            
+                <li class="third-level"><a href="#persistence">Persistence</a></li>
+            
+                <li class="third-level"><a href="#thread-safety-and-concurrency">Thread-Safety and Concurrency</a></li>
+            
+                <li class="third-level"><a href="#logging">Logging</a></li>
+            
+                <li class="third-level"><a href="#auditing">Auditing</a></li>
+            
+                <li class="third-level"><a href="#exception-handling">Exception Handling</a></li>
+            
+                <li class="third-level"><a href="#internationalization">Internationalization</a></li>
+            
+                <li class="third-level"><a href="#security">Security</a></li>
+            
+                <li class="third-level"><a href="#performance">Performance</a></li>
+            
+                <li class="third-level"><a href="#scalability">Scalability</a></li>
+            
+        
+            <li class="second-level"><a href="#deployment-constraints">Deployment Constraints</a></li>
+            
+                <li class="third-level"><a href="#technology-overview">Technology overview</a></li>
+            
+        
+            <li class="second-level"><a href="#interfaces-classes-overview">Interfaces Classes Overview</a></li>
+            
+        
+            <li class="second-level"><a href="#changes-to-existing-system">Changes to Existing System</a></li>
+            
+        
+    
+        <li class="first-level "><a href="#user-interface">User Interface</a></li>
+        
+    
+        <li class="first-level "><a href="#future-enhancements">Future Enhancements</a></li>
+        
+    
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p><span id="_Toc476869617" class="anchor"></span>HP Data Quality ETL App
+Design Specification</p>
+<hr />
+<p><strong>Author</strong>   <strong>Revision Number</strong>   <strong>Date</strong>
+  Architect    1.0                   </p>
+<hr />
+<h1 id="_1">\</h1>
+<p><em>HP Data Quality ETL App Design Specification</em> 1</p>
+<p><a href="#application-design-specification"><em>Application Design Specification</em>
+3</a></p>
+<p><a href="#_Toc476869619"><em>1.</em> <em>Design</em> 3</a></p>
+<p><a href="#overview"><em>1.1</em> <em>Overview</em> 3</a></p>
+<p><a href="#component-requirements"><em>1.2</em> <em>Component Requirements</em> 3</a></p>
+<p><a href="#_Toc476869622"><em>1.2.1</em> <em>Assemblies</em> 3</a></p>
+<p><a href="#topcoder-generic-components"><em>1.2.2</em> <em>TopCoder Generic Components</em> 3</a></p>
+<p><a href="#_Toc476869624"><em>1.2.3</em> <em>Third Party Components</em> 3</a></p>
+<p><a href="#application-management"><em>1.3</em> <em>Application Management</em> 4</a></p>
+<p><a href="#transaction"><em>1.3.1</em> <em>Transaction</em> 4</a></p>
+<p><a href="#configuration"><em>1.3.2</em> <em>Configuration</em> 4</a></p>
+<p><a href="#persistence"><em>1.3.3</em> <em>Persistence</em> 4</a></p>
+<p><a href="#thread-safety-and-concurrency"><em>1.3.4</em> <em>Thread-Safety and Concurrency</em>
+4</a></p>
+<p><a href="#logging"><em>1.3.5</em> <em>Logging</em> 4</a></p>
+<p><a href="#_Toc476869631"><em>1.3.6</em> <em>Auditing</em> 4</a></p>
+<p><a href="#exception-handling"><em>1.3.7</em> <em>Exception Handling</em> 4</a></p>
+<p><a href="#_Toc476869633"><em>1.3.8</em> <em>Internationalization</em> 5</a></p>
+<p><a href="#security"><em>1.3.9</em> <em>Security</em> 5</a></p>
+<p><a href="#performance"><em>1.3.10</em> <em>Performance</em> 5</a></p>
+<p><a href="#scalability"><em>1.3.11</em> <em>Scalability</em> 5</a></p>
+<p><a href="#_Toc476869637"><em>1.4</em> <em>Deployment Constraints</em> 5</a></p>
+<p><a href="#_Toc476869638"><em>1.4.1</em> <em>Technology overview</em> 5</a></p>
+<p><a href="#_Toc476869639"><em>1.5</em> <em>Development Standards:</em> 5</a></p>
+<p><a href="#interfaces-classes-overview"><em>1.5.1</em> <em>Interfaces Classes Overview</em> 5</a></p>
+<p><a href="#changes-to-existing-system"><em>1.5.2</em> <em>Changes to Existing System</em> 5</a></p>
+<p><a href="#user-interface"><em>2.</em> <em>User Interface</em> 5</a></p>
+<p><a href="#included-documentation"><em>3.</em> <em>Included Documentation</em> 5</a></p>
+<p><a href="#architecture-documentation"><em>3.1</em> <em>Architecture Documentation</em> 5</a></p>
+<p><a href="#_Toc476869645"><em>4.</em> <em>Future Enhancements</em> 6</a></p>
+<p>\
+Application Design Specification
+================================</p>
+<h1 id="design"><span id="_Toc456598593" class="anchor"><span id="_Toc476869619" class="anchor"></span></span>Design</h1>
+<blockquote>
+<p>Client wants to build an Extract Transform and Load (ETL) application
+that will allow user to move data between a source file or database
+and a destination directory or database. The goal of this challenge is
+to create the underlying architecture for this Data Quality app. The
+tool will allow moving file and relational data on a regular basis and
+will display the status of the currently scheduled and recently
+completed jobs.</p>
+<p>This architecture defines backend and frontend for the app.</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>The application will consist of the following:</p>
+<ul>
+<li>
+<p>Spring REST controllers layer.</p>
+</li>
+<li>
+<p>Service layer (for jobs only) and DAO layer with the Spring Data JPA
+    default implementation.</p>
+</li>
+</ul>
+<p>The application is built with Spring Boot (please check details
+<a href="https://spring.io/guides/gs/spring-boot/"><em>here</em></a>).</p>
+<ol>
+<li>
+<p>Component Requirements
+    ----------------------</p>
+<ol>
+<li>
+<h3 id="assemblies"><span id="_Toc467007641" class="anchor"><span id="_Toc476869622" class="anchor"></span></span>Assemblies</h3>
+</li>
+</ol>
+</li>
+<li>
+<p>HP Data Quality ETL App Record DAO Backend Backend Assembly</p>
+</li>
+</ol>
+<blockquote>
+<p>This assembly is responsible for Record DAO interfaces and
+implementations (com.hp.etl.services.recorddao,
+com.hp.etl.services.recorddao.impl packages) as shown on UML Class
+Diagram.</p>
+</blockquote>
+<ul>
+<li>HP Data Quality ETL App Controllers and Services Backend Assembly</li>
+</ul>
+<blockquote>
+<p>This assembly is responsible for the rest of implementation (all
+classes and interfaces except com.hp.etl.services.recorddao,
+com.hp.etl.services.recorddao.impl packages) as shown on UML Class
+Diagram.</p>
+</blockquote>
+<ul>
+<li>HP Data Quality ETL App Frontend Assembly</li>
+</ul>
+<blockquote>
+<p>This assembly is responsible converting prototype into fully
+functional web app that accesses backend via REST API.</p>
+</blockquote>
+<h3 id="topcoder-generic-components">TopCoder Generic Components</h3>
+<p>None</p>
+<h3 id="third-party-components"><span id="_Toc295828617" class="anchor"><span id="_Toc476869624" class="anchor"></span></span>Third Party Components</h3>
+<ul>
+<li>Spring Framework 4.1.5</li>
+</ul>
+<blockquote>
+<p>It is used for configuration and REST functionality.</p>
+</blockquote>
+<ul>
+<li>Apache log4j 1.2</li>
+</ul>
+<blockquote>
+<p>This is used for logging.</p>
+</blockquote>
+<ul>
+<li>MySQL 5.7.x</li>
+</ul>
+<p>This is the database system.</p>
+<ul>
+<li>Spring Boot 1.3.x</li>
+</ul>
+<p>This is used for creating standalone Spring app.</p>
+<ul>
+<li>Apache POI 3.15</li>
+</ul>
+<p>This is used for Excel reading/writing.</p>
+<ol>
+<li>
+<p>Application Management
+    ----------------------</p>
+<ol>
+<li>
+<h3 id="transaction">Transaction</h3>
+</li>
+</ol>
+</li>
+</ol>
+<p>Spring declarative transactions will be used in the modifiable method.
+The method will be annotated with @Transactional.</p>
+<h3 id="configuration">Configuration</h3>
+<blockquote>
+<p>Configuration will be done with Spring IoC.</p>
+<p>The init method will be annotated with @PostConstruct and will throw
+ConfigurationException if any error in configuration like missing the
+required config parameter appears.</p>
+<p>All configuration fields are marked as &lt;&lt;injected&gt;&gt; or
+@Autowired on class diagrams.</p>
+</blockquote>
+<h3 id="persistence">Persistence</h3>
+<p>The default persistence will use Spring Data JPA specifications that
+will access the MySQL database.</p>
+<h3 id="thread-safety-and-concurrency">Thread-Safety and Concurrency</h3>
+<p>The backend services, Spring MVC controllers, interceptors and exception
+handlers should be effectively thread-safe. It can be assumed that the
+entities being persisted won't change during a persistence operation
+(for example, only one thread will work with a given entity instance at
+a time), but with that exception, the rest of the code will be able to
+be called from multiple threads. Also, the use of the IoC container to
+inject configurations will not be treated as a factor in thread-safety.</p>
+<h3 id="logging">Logging</h3>
+<blockquote>
+<p>The application will log activities and exceptions using Log4j logger.</p>
+<p>Errors will be logged at ERROR level, and activity at DEBUG level,
+general information will be logged at INFO level.</p>
+<p>Sensitive information like access token, user credentials and database
+connection credentials should not be logged.</p>
+<p>Specifically, logging will be performed as follows, if logging is
+turned on.</p>
+<ul>
+<li>All exceptions will be logged at ERROR level, and automatically log
+inner exceptions as well.</li>
+</ul>
+<p>o Format: Simply log the text of exception: [Error in method
+{className.methodName}: Details {error details}]</p>
+<ul>
+<li>
+<p>All informational messages will be logged at INFO level.</p>
+</li>
+<li>
+<p>All debug messages will be logged at DEBUG level.</p>
+</li>
+</ul>
+<p>The logging will also provide a timestamp, but this is expected to be
+done automatically by the used logging mechanism, so explicit need to
+pass this information is not needed.</p>
+<p>Diagnostic logging:</p>
+</blockquote>
+<ul>
+<li>
+<p>Use some informational logging before and after major
+    method invocations. Use judiciously, do not log too much or too
+    little</p>
+</li>
+<li>
+<p>In the event of an error or exception, be liberal with
+    diagnostic logging. When an exception is encountered, support staff
+    need as much contextual information available as possible
+    for troubleshooting.</p>
+</li>
+<li>
+<p>Consider writing performance log messages for long running processes</p>
+</li>
+<li>
+<p>Always use a common ID such as a “request id” in log messages to
+    allow for collation of log messages written across multiple servers
+    / log files for the same request.</p>
+<ol>
+<li>
+<h3 id="auditing"><span id="_Toc229296155" class="anchor"><span id="_Toc264960888" class="anchor"><span id="_Toc476869631" class="anchor"></span></span></span>Auditing</h3>
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>Main entities (Job, Project) have audit related fields.</p>
+</blockquote>
+<h3 id="exception-handling">Exception Handling</h3>
+<blockquote>
+<p>The architecture defines the following:</p>
+<p>ConfigurationException – thrown if any error in configuration occurs.</p>
+<p>HPDataQualityException – base exception, thrown if any error occurs.</p>
+<p>EntityNotFoundException - indicates that the entity wasn’t found.</p>
+</blockquote>
+<h3 id="internationalization"><span id="_Toc264960887" class="anchor"><span id="_Toc476869633" class="anchor"></span></span>Internationalization</h3>
+<blockquote>
+<p>No.</p>
+</blockquote>
+<h3 id="security">Security</h3>
+<blockquote>
+<p>For authorization purpose all controller methods will be annotated
+with @PreAuthorize() that calls AuthorizationService.hasPermission. A
+single user may have one role:</p>
+<p>-- Admin – creates and modifies users, has visibility to all Projects
+and Jobs in the System.</p>
+<p>-- User - only has access to own projects and jobs.</p>
+<p>For authorization the application extends WebSecurityConfigurerAdapter
+and configures it with the custom security components. The basic
+authentication will be used.</p>
+</blockquote>
+<h3 id="performance">Performance</h3>
+<p>The search API endpoints use pagination to improve the performance. The
+amount of joins DB in minimized to improve performance. Please see TCUML
+for details.</p>
+<h3 id="scalability">Scalability</h3>
+<p>There is no particular scalability requirement, and the proposed
+architecture does not prevent the application from being scalable.</p>
+<h2 id="deployment-constraints"><span id="_Toc290976868" class="anchor"><span id="_Toc476869637" class="anchor"></span></span>Deployment Constraints</h2>
+<blockquote>
+<p>This application will be deployed to Tomcat 8 serving as an
+application container and Apache HTTP Server.</p>
+</blockquote>
+<h3 id="technology-overview"><span id="_Toc282280945" class="anchor"><span id="_Toc290976869" class="anchor"><span id="_Toc476869638" class="anchor"></span></span></span>Technology overview</h3>
+<ul>
+<li>
+<p>Java 8</p>
+</li>
+<li>
+<p>REST API</p>
+</li>
+<li>
+<p>MySQL 5.7.x</p>
+</li>
+<li>
+<p>Spring Framework 4.x
+    <a href="http://projects.spring.io/spring-framework/"><em>http://projects.spring.io/spring-framework/</em></a></p>
+</li>
+<li>
+<p>Spring Boot 1.3.x
+    <a href="http://projects.spring.io/spring-boot/"><em>http://projects.spring.io/spring-boot/</em></a></p>
+</li>
+<li>
+<p>Log4j 1.2
+    <a href="http://logging.apache.org/log4j/1.2/"><em>http://logging.apache.org/log4j/1.2/</em></a></p>
+</li>
+<li>
+<p>Apache POI 3.15
+    <a href="https://poi.apache.org/download.html"><em>https://poi.apache.org/download.html</em></a></p>
+<ol>
+<li><span id="_Toc418557418" class="anchor"><span id="_Toc476869639" class="anchor"></span></span>Development Standards:
+    --------------------------------------------------------------------------------------------------------------------</li>
+</ol>
+</li>
+</ul>
+<p>The assembly development must adhere to the guidelines as outlined in
+the <a href="http://apps.topcoder.com/wiki/display/tc/Assembly+Competition+Tutorials"><em>TopCoder Assembly Competition
+Tutorial</em></a>.</p>
+<h2 id="interfaces-classes-overview">Interfaces Classes Overview</h2>
+<p>See the TCUML file.</p>
+<h2 id="changes-to-existing-system">Changes to Existing System</h2>
+<blockquote>
+<p>None</p>
+</blockquote>
+<h1 id="user-interface">User Interface</h1>
+<p>None.</p>
+<ol>
+<li>
+<p>Included Documentation
+    ======================</p>
+<ol>
+<li>Architecture Documentation
+    --------------------------</li>
+</ol>
+</li>
+<li>
+<p>Class Diagrams</p>
+</li>
+<li>
+<p>Sequence Diagrams</p>
+</li>
+<li>
+<p>Application Design Specification</p>
+</li>
+<li>
+<p>ERD</p>
+</li>
+<li>
+<p>Swagger API definition</p>
+</li>
+</ol>
+<h1 id="future-enhancements"><span id="_Toc96189500" class="anchor"><span id="_Toc247828660" class="anchor"><span id="_Toc271032304" class="anchor"><span id="_Toc476869645" class="anchor"></span></span></span></span>Future Enhancements</h1>
+<p>None.</p></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../..';
+    </script>
+    <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+    <script src="../../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
