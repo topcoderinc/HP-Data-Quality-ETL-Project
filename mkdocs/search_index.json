@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Project Description\n\n\nThe HP Data Quality team is tasked with moving large amounts of data on a regular basis.  They would like to development an Extract Transform and Load tool that allows them to move file and relational data on a regular basis and create a monitoring service which can display the status of the currently scheduled and recently completed jobs.  Often they are moving data between regular and HDFS file systems.\n\n\nLive Wireframes\n\n\nLive Storyboards\n\n\n  Repos\n\n\n\n\nProject Documentaiton (this repo)\n\n\nWireframes \n\n\nStoryboards \n\n\n\n\nChallenge Index\n\n\n\n\n\n\n\n\nType\n\n\ntitle\n\n\ndirect\n\n\n\n\n\n\n\n\n\n\nWireframe\n\n\nHP DATA QUALITY ETL APPLICATION WIREFRAME CHALLENGE \n\n\ndirect link \n\n\n\n\n\n\nWeb Design\n\n\nHP DATA QUALITY ETL APPLICATION DESIGN CHALLENGE\n\n\ndirect link\n\n\n\n\n\n\nArchitecture\n\n\nHP DATA QUALITY ETL APP ARCHITECTURE CHALLENGE\n\n\ndirect link\n\n\n\n\n\n\nPrototype\n\n\nHP DATA QUALITY ETL APP UI PROTOTYPE CHALLENGE\n\n\ndirect link\n\n\n\n\n\n\n\n\nModel ERD\n\n\n\n\n\n\nWireframe\n\n\n\n\nStoryboards", 
+            "text": "Project Description\n\n\nThe HP Data Quality team is tasked with moving large amounts of data on a regular basis.  They would like to development an Extract Transform and Load tool that allows them to move file and relational data on a regular basis and create a monitoring service which can display the status of the currently scheduled and recently completed jobs.  Often they are moving data between regular and HDFS file systems.\n\n\nWinning Wireframes\n\n\nWinning Storyboards\n\n\n  Repos\n\n\n\n\nProject Documentaiton (this repo)\n\n\nWireframes \n\n\n\n\nStoryboards \n\n\n\n\n\n\nWireframes: webDesign/wireframeIframe.md\n\n\n\n\nStoryboards: webDesign/storyboardIframe.md  \n\n\n\n\nChallenge Index\n\n\n\n\n\n\n\n\nType\n\n\ntitle\n\n\ndirect\n\n\n\n\n\n\n\n\n\n\nWireframe\n\n\nHP DATA QUALITY ETL APPLICATION WIREFRAME CHALLENGE \n\n\ndirect link \n\n\n\n\n\n\nWeb Design\n\n\nHP DATA QUALITY ETL APPLICATION DESIGN CHALLENGE\n\n\ndirect link\n\n\n\n\n\n\nArchitecture\n\n\nHP DATA QUALITY ETL APP ARCHITECTURE CHALLENGE\n\n\ndirect link\n\n\n\n\n\n\nPrototype\n\n\nHP DATA QUALITY ETL APP UI PROTOTYPE CHALLENGE\n\n\ndirect link\n\n\n\n\n\n\n\n\nModel ERD", 
             "title": "This Project introduction"
         }, 
         {
@@ -11,18 +11,18 @@
             "title": "Project Description"
         }, 
         {
-            "location": "/#live-wireframes", 
+            "location": "/#winning-wireframes", 
             "text": "", 
-            "title": "Live Wireframes"
+            "title": "Winning Wireframes"
         }, 
         {
-            "location": "/#live-storyboards", 
+            "location": "/#winning-storyboards", 
             "text": "", 
-            "title": "Live Storyboards"
+            "title": "Winning Storyboards"
         }, 
         {
             "location": "/#repos", 
-            "text": "Project Documentaiton (this repo)  Wireframes   Storyboards", 
+            "text": "Project Documentaiton (this repo)  Wireframes    Storyboards     Wireframes: webDesign/wireframeIframe.md   Storyboards: webDesign/storyboardIframe.md", 
             "title": "Repos"
         }, 
         {
@@ -34,16 +34,6 @@
             "location": "/#model-erd", 
             "text": "", 
             "title": "Model ERD"
-        }, 
-        {
-            "location": "/#wireframe", 
-            "text": "", 
-            "title": "Wireframe"
-        }, 
-        {
-            "location": "/#storyboards", 
-            "text": "", 
-            "title": "Storyboards"
         }, 
         {
             "location": "/component_details/", 
