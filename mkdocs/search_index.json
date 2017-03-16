@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Project Description\n\n\nThe HP Data Quality team is tasked with moving large amounts of data on a regular basis.  They would like to development an Extract Transform and Load tool that allows them to move file and relational data on a regular basis and create a monitoring service which can display the status of the currently scheduled and recently completed jobs.  Often they are moving data between regular and HDFS file systems.\n\n\nLive Wireframes\n\n\nLive Storyboards\n\n\n  Repos\n\n\n\n\nProject Documentaiton (this repo)\n\n\nWireframes \n\n\nStoryboards \n\n\n\n\nChallenge Index\n\n\n\n\n\n\n\n\nType\n\n\ntitle\n\n\ndirect\n\n\n\n\n\n\n\n\n\n\nWireframe\n\n\nHP DATA QUALITY ETL APPLICATION WIREFRAME CHALLENGE \n\n\ndirect link \n\n\n\n\n\n\nWeb Design\n\n\nHP DATA QUALITY ETL APPLICATION DESIGN CHALLENGE\n\n\ndirect link\n\n\n\n\n\n\nArchitecture\n\n\nHP DATA QUALITY ETL APP ARCHITECTURE CHALLENGE\n\n\ndirect link\n\n\n\n\n\n\nPrototype\n\n\nHP DATA QUALITY ETL APP UI PROTOTYPE CHALLENGE\n\n\ndirect link", 
+            "text": "Project Description\n\n\nThe HP Data Quality team is tasked with moving large amounts of data on a regular basis.  They would like to development an Extract Transform and Load tool that allows them to move file and relational data on a regular basis and create a monitoring service which can display the status of the currently scheduled and recently completed jobs.  Often they are moving data between regular and HDFS file systems.\n\n\nLive Wireframes\n\n\nLive Storyboards\n\n\n  Repos\n\n\n\n\nProject Documentaiton (this repo)\n\n\nWireframes \n\n\nStoryboards \n\n\n\n\nChallenge Index\n\n\n\n\n\n\n\n\nType\n\n\ntitle\n\n\ndirect\n\n\n\n\n\n\n\n\n\n\nWireframe\n\n\nHP DATA QUALITY ETL APPLICATION WIREFRAME CHALLENGE \n\n\ndirect link \n\n\n\n\n\n\nWeb Design\n\n\nHP DATA QUALITY ETL APPLICATION DESIGN CHALLENGE\n\n\ndirect link\n\n\n\n\n\n\nArchitecture\n\n\nHP DATA QUALITY ETL APP ARCHITECTURE CHALLENGE\n\n\ndirect link\n\n\n\n\n\n\nPrototype\n\n\nHP DATA QUALITY ETL APP UI PROTOTYPE CHALLENGE\n\n\ndirect link\n\n\n\n\n\n\n\n\nModel ERD\n\n\n\n\n\n\nWireframe\n\n\n\n\nStoryboards", 
             "title": "This Project introduction"
         }, 
         {
@@ -29,6 +29,21 @@
             "location": "/#challenge-index", 
             "text": "Type  title  direct      Wireframe  HP DATA QUALITY ETL APPLICATION WIREFRAME CHALLENGE   direct link     Web Design  HP DATA QUALITY ETL APPLICATION DESIGN CHALLENGE  direct link    Architecture  HP DATA QUALITY ETL APP ARCHITECTURE CHALLENGE  direct link    Prototype  HP DATA QUALITY ETL APP UI PROTOTYPE CHALLENGE  direct link", 
             "title": "Challenge Index"
+        }, 
+        {
+            "location": "/#model-erd", 
+            "text": "", 
+            "title": "Model ERD"
+        }, 
+        {
+            "location": "/#wireframe", 
+            "text": "", 
+            "title": "Wireframe"
+        }, 
+        {
+            "location": "/#storyboards", 
+            "text": "", 
+            "title": "Storyboards"
         }, 
         {
             "location": "/component_details/", 
@@ -194,6 +209,16 @@
             "location": "/architecture/Application_Design_Specification/#future-enhancements", 
             "text": "None.", 
             "title": "Future Enhancements"
+        }, 
+        {
+            "location": "/webDesign/wireframeIframe/", 
+            "text": "function rmSide() {\n\n $(\"div\").removeClass(\"ul.nav.bs-sidenav container col-md-3 col-md-9  hidden-print affix well\")\n  $(\"ul\").removeClass(\"bs-sidenav\")\n}", 
+            "title": "Wireframes"
+        }, 
+        {
+            "location": "/webDesign/storyboardIframe/", 
+            "text": "function rmSide() {\n  $(\"div\").removeClass(\"ul.nav.bs-sidenav container col-md-3 col-md-9  hidden-print affix well\")\n  $(\"ul\").removeClass(\"nav bs-sidenav\")\n}", 
+            "title": "Storyboards"
         }, 
         {
             "location": "/topcoder/copilotsResponsiblites/", 
