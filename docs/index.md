@@ -19,4 +19,14 @@ The HP Data Quality team is tasked with moving large amounts of data on a regula
 |Architecture|[HP DATA QUALITY ETL APP ARCHITECTURE CHALLENGE](https://www.topcoder.com/challenge-details/30056613/?type=develop&noncache=true)| [direct link](https://www.topcoder.com/direct/contest/detail.action?projectId=30056613)
 |**Prototype**|[HP DATA QUALITY ETL APP UI PROTOTYPE CHALLENGE](https://www.topcoder.com/challenge-details/30056711/?type=develop&noncache=true)|[direct link](https://www.topcoder.com/direct/contest/detail.action?projectId=30056711)
 
-![](/architecture/ERD.svg)
+## [Model ERD]((/architecture/ERD.svg))
+
+[<img src='/architecture/ERD.svg'/ width="100%">](/architecture/ERD.svg)
+
+---
+
+## [Wireframe](https://topcoderinc.github.io/HP-Data-Quality-ETL-Wireframes)
+<iframe src="https://topcoderinc.github.io/HP-Data-Quality-ETL-Wireframes" width="100%" height="1000px"></iframe>
+
+## [Storyboards](https://topcoderinc.github.io/HP-Data-Quality-ETL-storyboards)
+<iframe src="https://topcoderinc.github.io/HP-Data-Quality-ETL-storyboards" width="100%" height="1000px"></iframe>

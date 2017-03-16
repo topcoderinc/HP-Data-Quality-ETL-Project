@@ -6,6 +6,8 @@ pages:
       - Component Details: component_details.md
       - Architecure Docs:
         - Application Design Spec: architecture/Application_Design_Specification.md
+      - Wireframes: webDesign/wireframeIframe.md
+      - Storyboards: webDesign/storyboardIframe.md  
     - Topcoder Docs:
        - 'Copilot Responsibilities': topcoder/copilotsResponsiblites.md
        - code:
