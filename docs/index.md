@@ -2,13 +2,17 @@
 
 The HP Data Quality team is tasked with moving large amounts of data on a regular basis.  They would like to development an Extract Transform and Load tool that allows them to move file and relational data on a regular basis and create a monitoring service which can display the status of the currently scheduled and recently completed jobs.  Often they are moving data between regular and HDFS file systems.
 
-##[Live Wireframes](https://topcoderinc.github.io/HP-Data-Quality-ETL-Wireframes/#g=1&p=login)
-##[Live Storyboards](https://topcoderinc.github.io/HP-Data-Quality-ETL-storyboards/)
+###[Winning Wireframes](webDesign/wireframeIframe.md)
+###[Winning Storyboards](webDesign/storyboardIframe.md)
 
 ### ![](https://assets-cdn.github.com/favicon.ico)  Repos
  * [Project Documentaiton (this repo)](https://github.com/topcoderinc/HP-Data-Quality-ETL-project)
  * [Wireframes ](https://github.com/topcoderinc/HP-Data-Quality-ETL-wireframes)
  * [Storyboards ](https://github.com/topcoderinc/HP-Data-Quality-ETL-storyboards)
+
+
+ - Wireframes: webDesign/wireframeIframe.md
+ - Storyboards: webDesign/storyboardIframe.md  
 
 
 ## Challenge Index
@@ -24,9 +28,3 @@ The HP Data Quality team is tasked with moving large amounts of data on a regula
 [<img src='/architecture/ERD.svg'/ width="100%">](/architecture/ERD.svg)
 
 ---
-
-## [Wireframe](https://topcoderinc.github.io/HP-Data-Quality-ETL-Wireframes)
-<iframe src="https://topcoderinc.github.io/HP-Data-Quality-ETL-Wireframes" width="100%" height="1000px"></iframe>
-
-## [Storyboards](https://topcoderinc.github.io/HP-Data-Quality-ETL-storyboards)
-<iframe src="https://topcoderinc.github.io/HP-Data-Quality-ETL-storyboards" width="100%" height="1000px"></iframe>
